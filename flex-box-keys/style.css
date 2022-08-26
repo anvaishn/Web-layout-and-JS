@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex-container {
+    /* height: 500px; */
+    display: flex;
+    /* flex-direction: column; */
+    background-color: bisque;
+    /* always on the main axis */
+    justify-content:space-evenly;
+    /* always on the cross axis */
+    align-items:center; 
+    /* flex-wrap: wrap; */
+    
+    
+}
+
+.item {
+    /* to define flex-grow flex-shrink and flex-basis in single line */
+    flex: 1;
+    /* width: 100px; */
+    height: 100px;
+    background: blue;
+    color: aliceblue;
+    margin: 10px;
+    /* flex-basis: 300px; */
+    display: flex;
+    /* ye har item ke andar kya chalega uska he */
+    align-items: center;
+    justify-content:center;
+    /* flex-grow: 1; */
+    /* ye sare independent items ke lie apply ho jaega */
+
+}
+
+/* .item:nth-child(1) {
+    align-self:baseline;
+    order: 2;
+    flex-basis: 200px;
+    // flex grow puri space occupy kar leta he
+    flex-grow: 1;  
+} */
+/* .item:nth-child(2) {
+    flex-grow: 2;
+    order: 3;
+    align-self:center;
+} */
+/* .item:nth-child(3) {
+    flex-grow: 1;
+    order: 1;
+    align-self: flex-end;
+} */
