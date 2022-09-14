@@ -1,0 +1,88 @@
+* {
+    box-sizing:border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+    background: cadetblue;
+}
+@media (min-width: 10px) {
+
+.container {
+    max-width: 960px;
+    margin: 100px auto;
+    background-color: lightblue;
+    padding: 10px;
+    display: grid; /*kuch dikhega nai karta hua but is se apan grid-template-columns and baki porperties ko access kar pate
+    /* grid-template-columns: 100px 200px; /*first column with 100 px and second column with 200 px.*/
+    /* grid-template-columns: 1fr 1fr 1fr; 3columns with each occupying certain fraciton of total, percentage ke form me bhi de sakte he, ese bhi likhte he repeat(3, 1fr) matlab 3 times 1fr */
+    column-gap: 10px; /* row-gap and column-gap ke bajae just gap: 10px ye bhi use kar sakte he for 10px gap between rows and columns. Iske alawa flex box me apan container ke andar wale items ke bich me margin deke karte the ye but grid me ye directly container pe laga sakte he*/
+    row-gap: 10px;
+    /* grid-auto-rows: minmax(100px, auto); /* height of rows, here min is 100px and max height is auto based on the content height */
+    /* grid-template-rows: 1fr 1fr 1fr; height of rows will be same as the row with max height */
+    /* align-items: flex-start; end, start, center ye sab tags use kar sakte */
+    /* justify-content: center; agar grid template column ki size fixed hogi, tab iska effect duikhega */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /*if size of individual item falls below 200px, then it will wrap, ye samaj le pyara concept he -> puri width ko autofilol karna he, chota karte time - minmax : agar min width of item 200 px se kum hui to extra ko wrap kar dega , and jabtak ye kam kar sakte he tabtak 1fr ni ho jata*/
+}
+
+.item {
+    background: steelblue;
+    color: #fff;
+    padding: 20px;
+    font-size: 20px;
+    border: 1px skyblue solid;
+}
+
+/* align-item is for the container, align-self is for the actual item. */
+
+/* .item:nth-of-type(2) {
+    height: 100px;
+    width: 100px;
+    align-self: center;
+    justify-self: center; 
+} */
+
+/* grid column span */
+
+/* .item:nth-of-type(1) {
+    background-color: black;
+    grid-column: 1 / 3;
+}
+
+.item:nth-of-type(3) {
+    background-color: black;
+    grid-row: 2 / 4;
+}
+*/
+} 
+/* @media (max-width: 500px) {
+    .container {
+        margin: 100px auto;
+        background-color: lightblue;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+
+    }
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+        color: #333;
+        background: cadetblue;
+    }
+
+    .item {
+        background: steelblue;
+        color: #fff;
+        padding: 20px;
+        font-size: 20px;
+        border: 1px skyblue solid;
+    }
+} */

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    background-color: steelblue;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;   /*body ke andar 2 contaier bhi laga sakta tha , one jho sari height leta adn second jho form jo puri height ke center me rakhta*/
+    justify-content: center;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.404);
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    /* background-color: brown; */
+}
+
+.container a {
+    color: aliceblue;
+}
+
+.form-control {
+    position: relative;
+    margin: 20px 0 40px;
+    width: 300px;
+    
+    /* background-color: orange; */
+}
+
+.btn {
+    font-size: 18px;
+    width: 100%;
+    padding: 15px;
+    border: 0;
+    margin-bottom: 10px;
+    color:white;
+    background-color: rgb(47, 47, 52);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 1px 15px 1px rgb(0, 0, 0, .505);
+}
+
+.btn:active {
+    transform: scale(.95);
+}
+
+p {
+    margin: 30px;
+    
+}
+.form-control input {
+    background-color: transparent;
+    border: 0;
+    padding: 20px 20px 2px 20px;
+    font-size: 16px;
+    border-bottom: 2px solid white;
+    display: block;/* inline me same line me rete, block me ek ke niche ek matlab nayi line se start hota and puri line ko occupy karta he, inline block bas content jitni width occupu karta he and we can change its height and width, inline wale ki height width change ni kar sakte*/
+    width: 100%;
+    color: white;
+
+}
+
+
+
+.form-control input:focus, .form-control :focus:valid { /*jab cloick kar denge empty field me*/
+    outline: 0; /* us box ke around border nai aaegi*/
+    border-bottom-color: grey;
+}
+
+.form-control label {
+    
+    position: absolute; /*pehle ye block element input ke niche tha, so input ke niche line occupy kar raha tha and form-control ke border ke andar tha, jab isko absolute kar dia to  ye form control ki border ke andar rehne ka restriction kho chuka he, hence form control ki border niche se choti ho gai*/
+    top: 10px;
+    left: 20px;
+}
+
+.form-control label span {
+    font-size: 18px;
+    display: inline-block; /*absolute se hatana padega na inko, bas block rakhega to ek ke nich ek aaenge isliye inline block*/
+    /* transition: transform 0.3s; */
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span { /*sibling combinator, matlab same level pe rahenge , ek hi parent hoga dono ka and 2nd wala sibling 1st wale ke immediate bad hona chiyea*/
+    
+    transform: translateY(-30px); /*transform doesnt work on inline so used inline-block*/
+}

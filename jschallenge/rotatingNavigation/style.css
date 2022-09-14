@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(72, 69, 69);
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+    
+}
+
+.container {
+    background-color: aliceblue;
+    transition: transform 0.5s linear;
+    width: 100vw; /*occupy whole width of viewport*/
+    min-height: 100vh;
+    padding: 50px;
+    transform-origin: top left;
+}
+
+.container.show-nav {
+    transform: rotate(-20deg);
+    transform-origin: top left; /*usuallu center se rotate karta he, apan ko top se chiyea isliye */
+}
+
+.container.show-nav + nav li {
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+.circle-container {
+    position: fixed;
+    top: -100px;
+    left: -100px;
+}
+
+.content img {
+    max-width: 100%; /*ye puri 100% image ko viewport width me hi rakhega*/
+}
+.circle {
+    background-color: rgb(8, 51, 153);
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative; /*https://www.w3schools.com/css/css_positioning.asp  to understand the difference between these position tags*/
+    /*static: ye normal flow ke hisab se position hota basically isko use karo ni karo not make much of a difference
+    relative: ye apni normal position ke relative place hota by top, left, right etc.
+    fixed: isko viewport ke relative position karne ke lie use karte, basically ye page pe fix rahega inspite of scrolling
+    absolute: ye element apne parent ke relative position hoga, isliye parent ka kuch position tag hona padega pehle, agar koi position ancestor nai hoga to ye body ke relative postion hoga and fir scroll karoge to move karega*/
+    
+    transition: transform 0.5s linear; /*because circle ghumega when clicking buttons, to vo rotation kaisa rahega vo define kiya he*/
+}
+
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+}
+.circle button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background: transparent;
+    border: 0; /*to visualise what is happening with box of buttom open, close when writing css */
+    font-size: 26px;
+    color: white;
+}
+
+.circle button:focus {
+    outline: none; /*jab button click hoga tab kuch outline nai honi chieyea, uske liye he */
+}
+
+.circle button#open {
+    left: 60%;
+}
+
+.circle button#close {
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left; /*.circle button me isko center pe dal rakha tha , abhi wapas top peft me dal rahe, ye sab position relative to circle he ofc as absolute tag de rakha he circle button ko*/
+}
+
+.content {
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+.content small {
+    color: grey;
+    font-style: italic;
+}
+
+.content p {
+    color: darkolivegreen;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+nav {
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+nav ul li i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+nav ul li {
+    text-transform: uppercase;
+    color: white;
+    margin: 40px 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in;
+}
+
+nav ul li + li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
